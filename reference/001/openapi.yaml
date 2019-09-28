@@ -8,12 +8,44 @@ paths:
   /Establishments:
     get:
       summary: Get
-      tags: &ref_0 []
-      responses: {}
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  EstablishmentsDataTransfer:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id:
+                          type: number
+                        Description:
+                          type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ErrorList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id:
+                          type: number
+                        Description:
+                          type: string
       description: Listar Estabelecimentos
     post:
       summary: Post
-      tags: *ref_0
+      tags: []
       responses: {}
       description: Incluir Estabelecimentos
 components:
